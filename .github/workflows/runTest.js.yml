@@ -1,5 +1,5 @@
 name: GitHub Actions Test Any
-run-name: GitHub Action Any (${{ github.event_name }})🚀
+run-name: GitHub Action Push to Test Branch🚀
 on: 
   push:
     branches: [test]
