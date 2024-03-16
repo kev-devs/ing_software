@@ -4,11 +4,28 @@ on:
   push:
     branches: [examen-parcial-1]
 jobs:
-  Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Hola! este workflow se ejecuta al realizar un commit-push a la branch ${{ github.ref }}"
-      - run: echo "Origen del evento ${{ github.actor }}."
-      - run: echo "La indicación en el portal decia que se ejecutara al realizar un commit pero asumo a que se refiere a un commit->push"
-      
-      - run: echo "Estado ${{ job.status }}."
+    test:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v2
+          
+        - name: Setup Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: '14'
+    
+        - name: Install dependencies
+          run: npm install
+    
+        - name: Run unit tests
+          run: npm test   
+
+    Explore-GitHub-Actions:
+        runs-on: ubuntu-latest
+        steps:
+        - run: echo "Hola! este workflow se ejecuta al realizar un commit-push a la branch ${{ github.ref }}"
+        - run: echo "Origen del evento ${{ github.actor }}."
+        - run: echo "La indicación en el portal decia que se ejecutara al realizar un commit pero asumo a que se refiere a un commit->push"
+        
+        - run: echo "Estado ${{ job.status }}."
