@@ -2,7 +2,7 @@ name: examen-parcial-1 Kevin Estrada
 run-name: Workflow para examen-parcial-1
 on: 
   push:
-    branches: [examen-parcial-1]
+    branches: [main]
 jobs:
     test:
         runs-on: ubuntu-latest
