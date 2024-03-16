@@ -1,0 +1,14 @@
+name: examen-parcial-1 Kevin Estrada
+run-name: Workflow para examen-parcial-1
+on: 
+  push:
+    branches: [examen-parcial-1]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hola! este workflow se ejecuta al realizar un commit-push a la branch ${{ github.ref }}"
+      - run: echo "Origen del evento ${{ github.actor }}."
+      - run: echo "La indicación en el portal decia que se ejecutara al realizar un commit pero asumo a que se refiere a un commit->push"
+      
+      - run: echo "Estado ${{ job.status }}."
